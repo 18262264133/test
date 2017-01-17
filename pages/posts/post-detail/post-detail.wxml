@@ -1,0 +1,18 @@
+<view class="container">
+  <image class="head-image" src="/image/post/crab.png"></image>
+  <view class="author-date">
+    <image class="avatar" src="/image/avatar/2.png"></image>
+    <text class="author">胡歌</text>
+    <text class="const-text">发表于</text>
+    <text class="date">三天前</text>
+  </view>
+  <text class="title">剑三好玩么</text>
+  <view class="tool">
+    <view class="circle-img">
+      <image src="/image/icon/collection.png"></image>
+      <image class="share-img" src="/image/icon/share.png"></image>
+    </view>
+    <view class="horizon"></view>
+  </view>
+  <text class="detail">剑三现在不叫剑三，叫世纪佳缘叁</text>
+</view>

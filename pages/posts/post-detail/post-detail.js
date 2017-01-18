@@ -1,9 +1,10 @@
 //引用数据路径
 var postsData = require('../../../data/posts-data.js');
+var app = getApp();
 
 Page({
     data: {
-
+        isplayingMusic: false
     },
     onLoad: function (option) {
         var postId = option.id;
@@ -24,9 +25,33 @@ Page({
             var postsCollected = {}
             postsCollected[postId] = false;
             wx.setStorageSync('postsCollected', postsCollected);
+        };
+        if (app.globalData.g_isplayingMusic && app.globalData.g_currentMusicPostId === postId) {
+            this.setData({
+                isplayingMusic: true,
+            })
         }
+        this.setMusicMonitor();
     },
-
+    setMusicMonitor: function () {
+        //监听音乐开始
+        var that = this;
+        wx.onBackgroundAudioPlay(function () {
+            that.setData({
+                isplayingMusic: true,
+            })
+            app.globalData.g_isplayingMusic = true;
+            app.globalData.g_currentMusicPostId = that.data.currentPostId;
+        });
+        //监听音乐暂停
+        wx.onBackgroundAudioPause(function () {
+            that.setData({
+                isplayingMusic: false,
+            })
+            app.globalData.g_isplayingMusic = false;
+            app.globalData.g_currentMusicPostId = null;
+        })
+    },
     onColletionTap: function (event) {
         this.getPostsCollectedSyc();
         //this.getPostsCollectedAsy();
@@ -98,7 +123,7 @@ Page({
             "分享到朋友圈",
             "分享到到QQ",
             "分享到微博"
-        ]
+        ];
         wx.showActionSheet({
             itemList: itemList,
             itemColor: "#405f80",
@@ -108,8 +133,35 @@ Page({
                 wx.showModal({
                     title: "用户分享到了" + itemList[res.tapIndex],
                     content: "用户是否取消" + res.cancel + "现在无法实现分享功能"
-                })
-            }
-        })
-    }
+                });
+            },
+        });
+    },
+
+    onMusicTap: function (event) {
+
+        var isplayingMusic = this.data.isplayingMusic;
+
+        var currentPostId = this.data.currentPostId;
+
+        var postData = postsData.postList[currentPostId];
+
+        if (isplayingMusic) {
+            //音乐暂停
+            wx.pauseBackgroundAudio();
+            this.setData({
+                isplayingMusic: false,
+            })
+        } else {
+            //音乐启动
+            wx.playBackgroundAudio({
+                dataUrl: postData.music.url,
+                title: postData.music.title,
+                coverImgUrl: postData.music.coverImg,
+            });
+            this.setData({
+                isplayingMusic: true,
+            })
+        }
+    },
 })

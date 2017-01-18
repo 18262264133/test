@@ -1,5 +1,5 @@
 <view class="container">
-  <image class="head-image" src="{{postData.headImgsrc}}"></image>
+  <image class="head-image" src="{{isplayingMusic?postData.music.coverImg:postData.headImgsrc}}"></image>
   <image catchtap="onMusicTap" class="audio" src="{{isplayingMusic?'/image/music/music-stop.png':'/image/music/music-start.png'}}"></image>
   <view class="author-date">
     <image class="avatar" src="{{postData.avatar}}"></image>

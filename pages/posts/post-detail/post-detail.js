@@ -139,13 +139,9 @@ Page({
     },
 
     onMusicTap: function (event) {
-
         var isplayingMusic = this.data.isplayingMusic;
-
         var currentPostId = this.data.currentPostId;
-
         var postData = postsData.postList[currentPostId];
-
         if (isplayingMusic) {
             //音乐暂停
             wx.pauseBackgroundAudio();

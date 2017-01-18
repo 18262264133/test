@@ -1,76 +1,99 @@
-.container{
-    display: flex;
-    flex-direction: column;
+.container {
+  display: flex;
+  flex-direction: column;
 }
-.head-image{
-    width:750rpx;
-    height:460rpx;
+
+.head-image {
+  width: 750rpx;
+  height: 460rpx;
 }
-.author-date{
-    flex-direction: row;
-    margin-top:30rpx;
-    margin-left: 20rpx;
+
+.audio {
+  width: 102rpx;
+  height: 110rpx;
+  position: absolute;
+  left: 50%;
+  top: 180rpx;
+  margin-left: -51rpx;
+  opacity: 0.6;
 }
-.avatar{
-    height:64rpx;
-    width:64rpx;
-    vertical-align: middle;
+
+.author-date {
+  flex-direction: row;
+  margin-top: 30rpx;
+  margin-left: 20rpx;
 }
-.author{
-    font-size: 30rpx;
-    margin-left: 20rpx;
-    vertical-align: middle;
-    color: #666;
+
+.avatar {
+  height: 64rpx;
+  width: 64rpx;
+  vertical-align: middle;
 }
-.const-text{
-    font-size: 24rpx;
-    color: #999;
-    margin-left: 20rpx;
+
+.author {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  vertical-align: middle;
+  color: #666;
 }
-.date{
-    font-size: 24rpx;
-    margin-left: 30rpx;
-    vertical-align: middle;
-    color: #999;
+
+.const-text {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 20rpx;
 }
-.title{
-    margin-left: 40rpx;
-    font-size: 36rpx;
-    font-weight: 700;
-    margin-top: 30rpx;
-    letter-spacing: 2px;
-    color: #4b556c;
+
+.date {
+  font-size: 24rpx;
+  margin-left: 30rpx;
+  vertical-align: middle;
+  color: #999;
 }
-.tool{
-    margin-top:20rpx;
+
+.title {
+  margin-left: 40rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-top: 30rpx;
+  letter-spacing: 2px;
+  color: #4b556c;
 }
-.circle-img{
-    float:right;
-    margin-right: 40rpx;
-    vertical-align: middle;
+
+.tool {
+  margin-top: 20rpx;
 }
-.circle-img image{
-    width:90rpx;
-    height:90rpx;
+
+.circle-img {
+  float: right;
+  margin-right: 40rpx;
+  vertical-align: middle;
 }
-.share-img{
-    margin-left: 30rpx;
+
+.circle-img image {
+  width: 90rpx;
+  height: 90rpx;
 }
-.horizon{
-    width:660rpx;
-    height:2px;
-    background-color: #e5e5e5;
-    vertical-align: middle;
-    position: relative;
-    top:46rpx;
-    margin: 0 auto;
-    z-index: -99;
+
+.share-img {
+  margin-left: 30rpx;
 }
-.detail{
-    color: #666;
-    margin-left: 30rpx;
-    margin-top:20rpx;
-    margin-right: 30rpx;
-    line-height: 44rpx;
-    letter-spacing: 2px;
+
+.horizon {
+  width: 660rpx;
+  height: 2px;
+  background-color: #e5e5e5;
+  vertical-align: middle;
+  position: relative;
+  top: 46rpx;
+  margin: 0 auto;
+  z-index: -99;
+}
+
+.detail {
+  color: #666;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+  letter-spacing: 2px;
 }

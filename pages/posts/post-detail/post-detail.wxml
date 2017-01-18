@@ -1,18 +1,20 @@
 <view class="container">
-  <image class="head-image" src="/image/post/crab.png"></image>
+  <image class="head-image" src="{{postData.headImgsrc}}"></image>
+  <image class="audio" src="/image/music/music-start.png"></image>
   <view class="author-date">
-    <image class="avatar" src="/image/avatar/2.png"></image>
-    <text class="author">胡歌</text>
+    <image class="avatar" src="{{postData.avatar}}"></image>
+    <text class="author">{{postData.author}}</text>
     <text class="const-text">发表于</text>
-    <text class="date">三天前</text>
+    <text class="date">{{postData.dateTime}}</text>
   </view>
-  <text class="title">剑三好玩么</text>
+  <text class="title">{{postData.title}}</text>
   <view class="tool">
     <view class="circle-img">
-      <image src="/image/icon/collection.png"></image>
-      <image class="share-img" src="/image/icon/share.png"></image>
+      <image wx:if="{{collected}}" catchtap="onColletionTap" src="/image/icon/collection.png"></image>
+      <image wx:else catchtap="onColletionTap" src="/image/icon/collection-anti.png"></image>
+      <image catchtap="onShareTap" class="share-img" src="/image/icon/share.png"></image>
     </view>
     <view class="horizon"></view>
   </view>
-  <text class="detail">剑三现在不叫剑三，叫世纪佳缘叁</text>
+  <text class="detail">{{postData.detail}}</text>
 </view>
